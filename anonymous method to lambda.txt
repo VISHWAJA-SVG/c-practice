@@ -1,0 +1,26 @@
+anonymous method 
+
+
+public void Example()
+{
+    // Anonymous method
+    delegate (int x, int y)
+    {
+        int result = x + y;
+        Console.WriteLine(result);
+    }(3, 4);
+}
+
+
+
+Convert to lambda
+
+public void Example()
+{
+    // Lambda expression
+    ((int x, int y) =>
+    {
+        int result = x + y;
+        Console.WriteLine(result);
+    })(3, 4);
+}

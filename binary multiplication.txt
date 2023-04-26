@@ -1,0 +1,41 @@
+using System;
+
+class MathEx
+{
+    static int multiplyUsingLeftShift(int num1, int num2)
+    {
+        int result = 0;
+        int count  = 0;
+
+        while (num2 > 0)
+        {
+            if (num2 % 2 == 1)
+                result = result +(num1 << count);
+
+            num2 = num2 / 2;
+            count++;
+        }
+        return result;
+    } 
+    public static void Main()
+    {
+        int number1=0;
+        int number2=0;
+        int product=0;
+ 
+        Console.Write("Enter the 1st number: ");
+        number1 = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter the 2nd number: ");
+        number2 = int.Parse(Console.ReadLine());
+
+        product = multiplyUsingLeftShift(number1, number2);
+        Console.WriteLine("Product of two numbers: {0}", product);
+    }
+}
+Output:
+
+Enter the 1st number: 12
+Enter the 2nd number: 7
+Product of two numbers: 84
+Press any key to continue . . .

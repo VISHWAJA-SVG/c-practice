@@ -1,0 +1,43 @@
+using System;
+namespace CsharpAssignmenttrial
+{
+    class Program
+    {
+        private int[] intArray = { 012, 123, 345, 456, 786 };
+        public int Size
+        {
+            get
+            {
+                return intArray.Length;
+            }
+        }
+        public int this[int index]
+        {
+            get
+            {
+                return intArray[index];
+            }
+            set
+            {
+                intArray[index] = value;
+            }
+        }
+
+        class Demo
+        {
+            public static void Main()
+            {
+                Program vals = new Program();
+                    int i = 0;
+                vals[2] = 5;
+                vals[4] = 7;
+                for(i=0;i<vals.Size;i++)
+                {
+                    Console.Write(vals[i] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+    }
+}

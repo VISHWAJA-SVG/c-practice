@@ -1,0 +1,29 @@
+using system;
+public interface Operation
+{
+void opr();
+}
+public class Add:Operation
+{
+public void opr()
+{
+a=2,b=8
+c=a+b;
+Console.WriteLine(c)
+}
+public class Substract:Operation
+{
+public void opr()
+{
+a=2,b=8
+c=a-b;
+Console.WriteLine(c)
+}
+public class TestInterface
+{public static void Main()
+Operation o;
+o = new Add()
+o.opr();
+o=new Substract();
+}
+}

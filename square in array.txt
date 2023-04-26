@@ -1,0 +1,63 @@
+using System;
+
+public class Program {
+    public static void Main() {
+        // Taking input from the user
+        Console.Write("Enter the size of the array: ");
+        int size = int.Parse(Console.ReadLine());
+
+        int[] arr = new int[size];
+        Console.WriteLine("Enter the elements of the array:");
+
+        for (int i = 0; i < size; i++) {
+            arr[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Printing the perfect squares from the array
+        Console.WriteLine("The perfect squares in the array are:");
+        for (int i = 0; i < size; i++) {
+            int square = (int)Math.Sqrt(arr[i]);
+            if (square * square == arr[i]) {
+                Console.WriteLine(arr[i]);
+            }
+        }
+    }
+}
+
+
+========================================================================================
+
+
+without using squareroot function 
+
+
+
+using System;
+
+public class Program {
+    public static void Main() {
+        // Taking input from the user
+        Console.Write("Enter the size of the array: ");
+        int size = int.Parse(Console.ReadLine());
+
+        int[] arr = new int[size];
+        Console.WriteLine("Enter the elements of the array:");
+
+        for (int i = 0; i < size; i++) {
+            arr[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Printing the perfect squares from the array
+        Console.WriteLine("The perfect squares in the array are:");
+        for (int i = 0; i < size; i++) {
+            int j = 1;
+            while (j * j <= arr[i]) {
+                if (j * j == arr[i]) {
+                    Console.WriteLine(arr[i]);
+                    break;
+                }
+                j++;
+            }
+        }
+    }
+}

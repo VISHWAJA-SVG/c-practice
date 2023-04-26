@@ -1,0 +1,78 @@
+generic calculator
+
+
+
+using System;
+
+namespace Practice
+{
+    class Calculator
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the action to be performed");
+            Console.WriteLine("Press 1 for Addition");
+            Console.WriteLine("Press 2 for Subtraction");
+            Console.WriteLine("Press 3 for Multiplication");
+            Console.WriteLine("Press 4 for Division \n");
+            int action = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter 1st input :");
+            int n1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter 2nd input :");
+            int n2 = Convert.ToInt32(Console.ReadLine());
+            int result = 0;
+            switch (action)
+            {
+                case 1:
+                    {
+                        result = Addition(n1, n2);
+                        break;
+                    }
+                case 2:
+                    {
+                        result = Subtraction(n1, n2);
+                        break;
+                    }
+                case 3:
+                    {
+                        result = Multiplication(n1, n2);
+                        break;
+                    }
+                case 4:
+                    {
+                        result = Division(n1, n2);
+                        break;
+                    }
+                default:
+                    Console.WriteLine("Wrong action!! try again");
+                    break;
+            }
+            Console.WriteLine("The result is {0}", result);
+            
+        }          
+        static T Addition<T>( T n1,  T n2)
+        {
+            dynamic a = n1;
+            dynamic b = n2;
+            return a + b;
+        }         
+        static T Subtraction<T>(T n1, T n2)
+        {
+            dynamic a = n1;
+            dynamic b = n2;
+            return a + b;
+        }         
+         static T Multiplication<T>(T n1, T n2)
+        {
+            dynamic a = n1;
+            dynamic b = n2;
+            return a + b;
+        }         
+        static T Division<T>(T n1, T n2)
+        {
+            dynamic a = n1;
+            dynamic b = n2;
+            return a + b;
+        }     
+    }
+}

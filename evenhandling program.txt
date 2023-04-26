@@ -1,0 +1,66 @@
+Event handling 
+
+using System; 
+namespace ConsoleApp4
+{
+    class Calculator
+    {         
+        public void Add(int a, int b)
+        {
+            Console.WriteLine(a + b);
+        }         
+        public void Sub(int a, int b)
+        {
+            Console.WriteLine(a - b);
+        }         
+        public void Mul(int a, int b)
+        {
+            Console.WriteLine(a * b);
+        }         
+        public void Div(int a, int b)
+        {
+            Console.WriteLine(a / b);
+        }     }
+}
+
+----------------------------------------------------------------------------------------
+
+using System; 
+namespace ConsoleApp4
+{
+    public delegate void CalculatingEventHandler(int a, int b);
+    class DelegateCal
+    {
+        public event CalculatingEventHandler Calculating;
+        public void RaiseEvent(int a, int b)
+        {
+            if(Calculating != null)
+            {
+                Calculating(a, b);
+            }
+        }
+    }
+}
+
+
+---------------------------------------------------------------------------------------
+
+
+
+using System; 
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DelegateCal d = new DelegateCal();
+            Calculator c = new Calculator();            
+            d.Calculating += c.Add;
+            d.Calculating += c.Sub;
+            d.Calculating += c.Mul;
+            d.Calculating += c.Div;            
+            d.RaiseEvent(60, 20);        
+        }
+    }
+}

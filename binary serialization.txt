@@ -1,0 +1,34 @@
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
+[Serializable]
+class Employee
+{
+    private int id;
+    private string name;
+    [NonSerialized()]
+    private string address;
+
+    public Employee(int id, string name, string address)
+    {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
+    public static void Main(string[] args)
+    {
+        // Initialize an object
+        Employee empObject = new Employee(101, "Vishwaja", "Mumbai");
+        // Create the file stream object
+        FileStream stream = new FileStream("C:\\Users\\VSANJEKA\\Desktop\\C#\\SerializationExample.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        BinaryFormatter formatter = new BinaryFormatter();
+        //start serialization
+       formatter.Serialize(stream, empObject);
+        //start deserialization
+       Employee employee = (Employee)formatter.Deserialize(stream);
+       Console.WriteLine($"Id:" +employee.id +" " + "Name:" +employee.name);
+        stream.Close();
+    }
+}

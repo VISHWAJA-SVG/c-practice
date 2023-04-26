@@ -1,0 +1,40 @@
+using System;
+
+// declare a delegate type for the event
+public delegate void EventHandler(object sender, EventArgs e);
+
+// declare a class that generates events
+public class Button
+{
+    // declare an event using the delegate type
+    public event EventHandler Click;
+
+    // method that raises the event
+    public void OnClick()
+    {
+        if (Click != null)
+        {
+            Click(this, EventArgs.Empty);
+        }
+    }
+}
+
+// declare a class that handles the event
+public class EventHandlerClass
+{
+    public void HandleEvent(object sender, EventArgs e)
+    {
+        Console.WriteLine("Button clicked!");
+    }
+}
+
+// example usage
+public static void Main()
+{
+    Button button = new Button();
+    EventHandlerClass handler = new EventHandlerClass();
+    button.Click += handler.HandleEvent;
+
+    // simulate a button click
+    button.OnClick();
+}

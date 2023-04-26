@@ -1,0 +1,43 @@
+using System;
+class BinarySum
+{
+    static void CalculateBinarySum(int num1, int num2)
+    {
+        int i   = 0;
+        int rem = 0;
+        string str="";
+
+        while (num1 != 0 || num2 != 0)
+        {
+            str += (num1 % 10 + num2 % 10 + rem) % 2;
+            rem = (num1 % 10 + num2 % 10 + rem) / 2;
+
+            num1 = num1 / 10;
+            num2 = num2 / 10;
+        }
+
+        if (rem != 0)
+            str += rem;
+        
+
+        Console.Write("Sum is : ");
+        for (i = str.Length - 1; i >= 0; i--)
+        {
+            Console.Write(str[i]);
+        }
+        Console.WriteLine();
+    }
+    public static void Main()
+    {
+        int num1=0;
+        int num2=0;
+        
+        Console.Write("Enter 1st binary number: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        
+        Console.Write("Enter 2nd binary number: ");
+        num2 = Convert.ToInt32(Console.ReadLine());
+
+        CalculateBinarySum(num1, num2);
+    }
+}

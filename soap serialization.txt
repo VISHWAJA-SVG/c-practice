@@ -1,0 +1,38 @@
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Soap;
+
+namespace soapdemo
+{
+
+    [Serializable]
+    class Soap
+    {
+        private int id;
+        private string name;
+        [NonSerialized()]
+        private string address;
+
+        public Soap(int id, string name, string address)
+        {
+            this.id = id;
+            this.name = name;
+            this.address = address;
+        }
+
+        public static void Main(string[] args)
+        {
+            // Initialize an object
+            Soap empObject = new Soap(101, "Vishwaja", "Mumbai");
+            // Create the file stream
+            FileStream stream = new FileStream("C:\\Users\\VSANJEKA\\Desktop\\C#\\SerializationExample.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            SoapFormatter formatter = new SoapFormatter();
+            //serialization
+            //formatter.Serialize(stream, empObject);
+            //deserialization
+            Soap employee = (Soap)formatter.Deserialize(stream);
+           Console.WriteLine($"Id: (employee.id) Name: (employee.name)");
+            stream.Close();
+        }
+    }
+}

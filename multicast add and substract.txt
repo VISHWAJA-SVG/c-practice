@@ -1,0 +1,29 @@
+using System;
+
+namespace MulticastDelegatedemo
+{
+    public delegate void CalDelegate(int a, int b);
+    public class Calculate
+    {
+        public void Add(int a, int b)
+        {
+            Console.WriteLine($"Addition is {a + b}");
+        }
+        public void Sub(int a, int b)
+        {
+            Console.WriteLine($"Substraction is {a - b}");
+        }
+        
+        static void Main(string[] args)
+        {
+            Calculate opr = new Calculate();
+            CalDelegate calDelegate = new CalDelegate(opr.Add);
+            // binding a method with delegate object
+            
+            //  += operator to chain delegates together.
+            calDelegate += opr.Sub;
+            calDelegate.Invoke(45, 15);
+
+        }
+    }
+}

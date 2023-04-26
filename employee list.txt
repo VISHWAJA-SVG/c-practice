@@ -1,0 +1,52 @@
+Employee List
+
+
+
+using System; namespace ConsoleApp2
+{
+    class Employee
+    {
+        private int _empId;
+        private string _empName;         
+        public int EmpId
+        {
+            get { return _empId; }
+            set { _empId = value; }
+        }         
+        public string EmpName
+        {
+            get { return _empName; }
+            set { _empName = value; }
+        }        
+        public Employee(int empId, string empName)
+        {
+            this.EmpId = empId;
+            this.EmpName = empName;
+        }
+    }
+}
+
+
+
+-------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic; 
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Employee> employees = new List<Employee>();            
+            employees.Add(new Employee(1, "Rama"));
+            employees.Add(new Employee(2, "Seetha"));
+            employees.Add(new Employee(3, "Laxman"));             
+            Console.WriteLine("----------Employee Details---------");
+            foreach (var employee in employees)
+            {
+                Console.WriteLine("Employee Id: " + employee.EmpId);
+                Console.WriteLine("Employee Name: " + employee.EmpName + "\n");
+            }
+        }
+    }
+}

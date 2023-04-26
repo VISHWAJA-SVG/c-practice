@@ -1,0 +1,58 @@
+using System;
+
+delegate double Calculate(double x, double y);
+
+class Calculator
+{
+    static double Add(double x, double y)
+    {
+        return x + y;
+    }
+
+    static double Subtract(double x, double y)
+    {
+        return x - y;
+    }
+
+    static double Multiply(double x, double y)
+    {
+        return x * y;
+    }
+
+    static double Divide(double x, double y)
+    {
+        if (y == 0)
+        {
+            throw new DivideByZeroException();
+        }
+
+        return x / y;
+    }
+
+    static void Main()
+    {
+        double x = 10;
+        double y = 5;
+
+        Calculate calc = null;
+        calc += Add;
+        calc += Subtract;
+        calc += Multiply;
+        calc += Divide;
+
+        foreach (Calculate op in calc.GetInvocationList())
+        {
+            try
+            {
+                double result = op(x, y);
+                Console.WriteLine("Result: {0}", result);
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Cannot divide by zero.");
+            }
+        }
+
+        Console.ReadLine();
+    }
+}

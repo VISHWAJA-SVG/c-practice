@@ -1,0 +1,21 @@
+using System;
+
+namespace CsharpAssignmenttrial
+{
+
+    class Program
+    {
+        public static void Main()
+        {
+            Console.WriteLine("Enter a string");
+            string original = Console.ReadLine();
+            char[] stringArray = original.ToCharArray();
+            string reversed = string.Empty;
+            for(int i=stringArray.Length-1;i>-1;i--)
+            {
+                reversed += stringArray[i];
+            }
+            Console.WriteLine(reversed);
+        }
+    }
+}

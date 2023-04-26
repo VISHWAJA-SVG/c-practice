@@ -1,0 +1,33 @@
+using System;
+
+namespace exceptionclass
+{
+    public class zerobal : Exception
+    {
+        string a;
+        public zerobal(string s)
+        {
+            a = s;
+            Console.WriteLine(a);
+        }
+    }
+    class banking
+    {
+        public static void withdraw(int b)
+        {
+            int bal = 10;
+            for (int i = bal; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+                    throw new zerobal("not enough bal");
+                }
+            }
+        }
+            public static void Main()
+            {
+                withdraw (7);
+            }
+
+        }
+    }

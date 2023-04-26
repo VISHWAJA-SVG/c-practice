@@ -1,0 +1,48 @@
+using System;
+
+
+namespace oprinterface
+{
+    public interface operation
+    {
+        void add(int a, int b);
+        void sub(int a, int b);
+        void display();
+    }
+    class opr1 : operation
+    {
+        int x, y;
+        double d;
+        public void add(int a, int b)
+        {
+
+            x = a + b;
+        }
+        public void sub(int a, int b)
+        {
+
+            y = a - b;
+        }
+        public void display()
+        {
+            Console.WriteLine("Addition value is:" + x);
+            Console.WriteLine("Subtraction value is:" + y);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            opr1 obj = new opr1();
+            int a, b;
+            Console.WriteLine("Enter the first Number :");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the second Number :");
+            b = Convert.ToInt32(Console.ReadLine());
+            obj.add(a, b);
+            obj.sub(a, b);
+            obj.display();
+
+        }
+    }
+}
